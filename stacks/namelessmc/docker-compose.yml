@@ -1,0 +1,36 @@
+version: '3.2'
+
+services:
+
+  nginx:
+    image: namelessmc/nginx:v2-pr12
+    ports: ['80:80']
+    volumes:
+      - type: bind # same as php container
+        source: /opt/nameless
+        target: /data
+    # environment: # Change this if you rename the php container
+    #   PHP_FPM: php:9000
+    depends_on: [php]
+    restart: always
+
+  php:
+    image: namelessmc/php:v2-pr12
+    volumes:
+      - type: bind # same as web container
+        source: /opt/nameless
+        target: /data
+    restart: always
+
+  db:
+    image: mariadb
+    volumes:
+      - type: bind
+        source: /opt/nameless-db
+        target: /var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: nameless
+      MYSQL_USER: nameless
+      MYSQL_PASSWORD: nameless
+      MYSQL_DATABASE: nameless
+    restart: always
