@@ -696,6 +696,26 @@
 		},
 		{
 			"categories":[
+				"continuous-integration"
+			],
+			"platform":"linux",
+			"logo":"https://portainer-io-assets.sfo2.digitaloceanspaces.com/logos/jenkins.png",
+			"image":"jenkins/jenkins:jdk17-preview",
+			"ports":[
+				"8080/tcp",
+				"50000/tcp"
+			],
+			"type":1,
+			"title":"Jenkins Java-17",
+			"description":"Open-source continuous integration tool",
+			"volumes":[
+				{
+					"container":"/var/jenkins_home"
+				}
+			]
+		},
+		{
+			"categories":[
 				"project-management"
 			],
 			"platform":"linux",
