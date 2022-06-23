@@ -5252,8 +5252,8 @@
 			"name": "DB_HOST",
 			"label": "DB_HOST",
 			"default": "postgres"
-		  }
-		]
-	  }
+		}
 	]
+  }
+]
 }
